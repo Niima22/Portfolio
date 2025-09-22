@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon house.png" sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niima'Space</title>
+  </head>
+  <body>
+    <style>
+      @font-face {
+        font-family: monogram;
+        src: url(monogram.ttf);
+      }
+
+      body {
+        font-family: monogram, monospace;
+        font-size: 2rem;
+        overflow: hidden;
+      }
+
+      #app {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      #textbox {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 600px;
+        min-height: 10vh;
+        background: white;
+        border-radius: 3px;
+        outline-style: solid;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        word-spacing: 0.2rem;
+        filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
+        /* overflow: auto; */
+      }
+
+      .ui-text {
+        margin: 0;
+        user-select: none;
+      }
+
+      .ui-close-btn {
+        font-family: monogram, monospace;
+        border-style: none;
+        border-radius: 3px;
+        padding: 1rem;
+        font-size: inherit;
+      }
+
+      .btn-container {
+        align-self: flex-end;
+        margin-top: 1rem;
+      }
+
+      .note {
+        position: absolute;
+        left: 0.5%;
+        top: 1vh;
+        display: flex;
+        flex-direction: column;
+        color: rgb(238, 238, 238);
+        font-size: 1.5rem; /* Increased from 1.2rem to 1.5rem */
+      }
+
+      .arrow-keys {
+        position: relative;
+        display: inline-block;
+      }
+
+      .arrow-up {
+        position: absolute;
+        left: 32px; /* Adjust this value to move up arrow horizontally */
+        top: 0px; /* Adjust this value to move up arrow vertically */
+      }
+
+      .arrow-bottom {
+        position: absolute;
+        left: 0px; /* Adjust this value to move bottom row horizontally */
+        top: 20px; /* Adjust this value to move bottom row vertically */
+      }
+    </style>
+    <div id="app">
+      <div>
+        <p class="note">Tap/Click around<br>Or Use arrow keys to move<br>
+          <span class="arrow-keys">
+            <span class="arrow-up">[↑]</span>
+            <span class="arrow-bottom">[←][↓][→]</span>
+          </span>
+        </p>
+
+        <div id="textbox-container" style="display: none">
+          <div id="textbox">
+            <p id="dialogue" class="ui-text"></p>
+            <div class="btn-container">
+              <button id="close" class="ui-close-btn">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <canvas id="game"></canvas>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
